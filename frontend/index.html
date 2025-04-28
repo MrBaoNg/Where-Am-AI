@@ -90,8 +90,8 @@
           uploadImageButton.style.display = "block";
         };
         reader.readAsDataURL(file); 
-        
-        async function uploadImage() {
+      }
+      async function uploadImage() {
           const input = document.getElementById('fileElem');
           const file = input.files[0];
       
@@ -106,7 +106,6 @@
           const result = await response.json();
           alert(result.message);
         }
-      }
     </script>
   </body>
 </html>
