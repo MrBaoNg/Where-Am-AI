@@ -23,7 +23,7 @@
       <button type="button" id="removeImage" style="display: none">
         Remove Image
       </button>
-      <button type="button" id="removeImage" style="display: none" onclick="uploadImage()">
+      <button type="button" id="uploadImage" style="display: none" onclick="uploadImage()">
         Upload Image
       </button>
     </div>
@@ -35,6 +35,7 @@
       const previewImg = document.getElementById("preview");
       const uploadInstructions = document.querySelector(".upload-instructions");
       const removeImageButton = document.getElementById("removeImage");
+      const uploadImageButton = document.getElementById("uploadImage");
 
       fileSelect.addEventListener("click", () => fileInput.click());
 
@@ -75,6 +76,7 @@
         uploadInstructions.style.display = "flex";
         dropArea.classList.remove("filled");
         removeImageButton.style.display = "none";
+        uploadImageButton.style.display = "none";
       });
 
       function showPreview(file) {
@@ -85,6 +87,7 @@
           uploadInstructions.style.display = "none";
           dropArea.classList.add("filled");
           removeImageButton.style.display = "block";
+          uploadImageButton.style.display = "block";
         };
         reader.readAsDataURL(file); 
         
