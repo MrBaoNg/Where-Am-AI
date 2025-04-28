@@ -23,6 +23,9 @@
       <button type="button" id="removeImage" style="display: none">
         Remove Image
       </button>
+      <button type="button" id="removeImage" style="display: none" onclick="uploadImage()">
+        Upload Image
+      </button>
     </div>
     <script>
       const dropArea = document.getElementById("drop-area");
@@ -83,7 +86,23 @@
           dropArea.classList.add("filled");
           removeImageButton.style.display = "block";
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file); 
+        
+        async function uploadImage() {
+          const input = document.getElementById('fileElem');
+          const file = input.files[0];
+      
+          const formData = new FormData();
+          formData.append('image', file);
+      
+          const response = await fetch('https://where-am-ai-backend.onrender.com/upload', {
+            method: 'POST',
+            body: formData,
+          });
+      
+          const result = await response.json();
+          alert(result.message);
+        }
       }
     </script>
   </body>
