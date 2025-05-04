@@ -1,39 +1,50 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  font-family: 'Kanit', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1950&q=80');
+  
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  backdrop-filter: blur(5px);
 }
 
 .main-content {
   text-align: center;
+  color: white;
+  text-shadow: 1px 1px 4px #000;
 }
 
 h1 {
-  font-size: 36px;
-  color: #333;
-  margin-bottom: 30px;
+  font-size: 48px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
 .upload-container {
-  width: 800px;
-  height: 600px;
-  border: 2px dashed #999;
-  border-radius: 10px;
-  background-color: #fff;
-  padding: 30px 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  height: 500px;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: visible; /* Changed to visible */
+  transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .upload-instructions {
@@ -47,27 +58,29 @@ h1 {
 
 .upload-container p {
   margin: 10px 0;
-  color: #555;
+  color: #fff;
+  font-size: 18px;
 }
 
 .upload-container button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   background-color: #4caf50;
   color: white;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .upload-container button:hover {
-  background-color: red;
+  background-color: #388e3c;
 }
 
 .upload-container.highlight {
   border-color: #00aaff;
-  background-color: #f0fbff;
+  background-color: rgba(240, 251, 255, 0.2);
 }
 
 #preview {
@@ -78,14 +91,12 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 16px;
+  z-index: 1;
+  opacity: 1;
 }
 
 .upload-container.filled {
-  border: 2px dashed #999;
-  border-radius: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  background-color: #fff;
   padding: 0;
   display: block;
 }
@@ -95,18 +106,111 @@ h1 {
 }
 
 #removeImage {
-  margin: 10px 320px;
-  align-items: center;
-  padding: 10px 20px;
+  margin-top: 20px;
+  padding: 10px 24px;
   background-color: #f44336;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 16px;
   display: none;
+  transition: background-color 0.3s ease;
+}
+
+
+#uploadImage {
+  margin: -37px 165px;
+  padding: 10px 24px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
+  transition: background-color 0.3s ease;
+}
+#uploadImage:hover {
+  background-color: #c62828;
 }
 
 #removeImage:hover {
-  background-color: #d32f2f;
+  background-color: #c62828;
 }
+/* Popup Styling - Improved to match your design */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  width: 80%;
+  max-width: 700px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  backdrop-filter: blur(10px);
+  color: white;
+  text-shadow: 1px 1px 4px #000;
+  transition: all 0.3s ease;
+}
+
+.popup-content:hover {
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.popup-content h2 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+  text-shadow: 1px 1px 4px #000;
+}
+
+.close-popup:hover {
+  color: #f44336;
+}
+
+.map-container {
+  height: 400px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+#info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-top: 15px;
+  backdrop-filter: blur(5px);
+}
+
