@@ -160,8 +160,20 @@ document.addEventListener("DOMContentLoaded", function () {
       })
 
       .catch((err) => {
-        document.getElementById("info").innerText =
-          "Failed to fetch location info.";
+        document.getElementById("info").innerHTML = `
+        <div class="error-message">
+          Could not fetch detailed location info<br>
+        </div>
+        <div class="feedback-section">
+          <span class="feedback-text">Was the coordinate detection correct?</span>
+          <div class="feedback-buttons">
+            <i class="material-icons feedback-icon up">thumb_up</i>
+            <i class="material-icons feedback-icon down">thumb_down</i>
+          </div>
+        </div>
+      `;
+      
+      setupFeedback();
       });
   }
 
