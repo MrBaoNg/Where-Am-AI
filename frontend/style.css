@@ -1,16 +1,24 @@
+/* Sets up the foundational styles for the entire page */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Kanit', sans-serif;
   background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1950&q=80');
-  
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); /* Creates glass effect */
+}
+/* Styles for text elements to ensure readability and visual hierarchy */
+.tagline {
+  color: white;
+  font-size: 17px;
+  margin-top: -15px;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .main-content {
@@ -24,14 +32,14 @@ h1 {
   margin-bottom: 20px;
   letter-spacing: 2px;
 }
-
+/* Styles for the main interactive upload area */
 .upload-container {
   width: 700px;
   height: 500px;
   border: 2px dashed rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* Enhanced glass effect */
   padding: 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   display: flex;
@@ -39,14 +47,16 @@ h1 {
   justify-content: center;
   align-items: center;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Smooth hover animation */
 }
 
+/* Interactive states */
 .upload-container:hover {
   transform: scale(1.02);
   border-color: rgba(255, 255, 255, 0.6);
 }
 
+/* Styles for components inside the upload container */
 .upload-instructions {
   text-align: center;
   display: flex;
@@ -74,6 +84,7 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
+/* Button states */
 .upload-container button:hover {
   background-color: #388e3c;
 }
@@ -83,6 +94,7 @@ h1 {
   background-color: rgba(240, 251, 255, 0.2);
 }
 
+/* Styles for when an image is uploaded */
 #preview {
   display: none;
   position: absolute;
@@ -104,7 +116,7 @@ h1 {
 .upload-container.filled .upload-instructions {
   display: none;
 }
-
+/* Styles for the remove/upload buttons */
 #removeImage {
   margin-top: 20px;
   padding: 10px 24px;
@@ -131,6 +143,7 @@ h1 {
   display: none;
   transition: background-color 0.3s ease;
 }
+/* Button hover states */
 #uploadImage:hover {
   background-color: #c62828;
 }
@@ -138,7 +151,8 @@ h1 {
 #removeImage:hover {
   background-color: #c62828;
 }
-/* Popup Styling - Improved to match your design */
+
+/* Styles for the modal that shows results */
 .popup-container {
   position: fixed;
   top: 0;
@@ -196,6 +210,7 @@ h1 {
   color: #f44336;
 }
 
+/* Map container */
 .map-container {
   height: 400px;
   width: 100%;
@@ -212,5 +227,50 @@ h1 {
   font-size: 18px;
   margin-top: 15px;
   backdrop-filter: blur(5px);
+}
+/* Styles for the rating buttons */
+.feedback-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.feedback-text {
+  font-size: 16px;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.feedback-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+/* Interactive states */
+.feedback-icon:hover {
+  transform: scale(1.1);
+}
+
+.feedback-icon.active {
+  transform: scale(1.1);
+}
+.feedback-icon.up.active {
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.2);
+}
+
+.feedback-icon.down.active {
+  color: #f44336;
+  background: rgba(244, 67, 54, 0.2);
 }
 

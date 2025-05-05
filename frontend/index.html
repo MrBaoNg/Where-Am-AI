@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Where Am I?</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
+     <!-- Leaflet CSS for map rendering -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+     <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <div class="main-content">
       <h1>Where Am I?</h1>
+      <p class="tagline">Drop a photo → Discover its location ✨</p>
+
+      <!-- Image upload container with drag and drop functionality -->
       <div class="upload-container" id="drop-area">
         <form id="uploadForm">
+          <!-- Upload instructions and file selection -->
           <div class="upload-instructions">
             <p>Drag & Drop your image here</p>
             <input type="file" id="fileElem" accept="image/*" hidden />
             <button type="button" id="fileSelect">Select Image</button>
-            <p id="file-name"></p>
+            <p id="file-name"></p> <!-- Display selected file name -->
           </div>
-          <img id="preview" src="" alt="Image preview" />
+
+           <!-- Preview selected image before upload -->
+          <img id="preview" src="" alt="Image preview" /> 
         </form>
       </div>
+
+      <!-- Buttons shown only when an image is selected -->
       <button type="button" id="removeImage" style="display: none">
         Remove Image
       </button>
@@ -31,17 +39,23 @@
         Upload Image
       </button>
     </div>
-    <!-- Popup Container -->
+
+    <!-- Popup for showing map and predicted location -->
     <div class="popup-container" id="resultPopup">
       <div class="popup-content">
         <span class="close-popup" onclick="closePopup()">&times;</span>
         <h2>AI Guessed This Location</h2>
+
+         <!-- Container for Leaflet interactive map -->
         <div class="map-container">
           <div id="map" style="height: 400px"></div>
         </div>
+
+        <!-- Display city/state/country info -->
         <div id="info">Fetching location info...</div>
       </div>
     </div>
+    <!-- Leaflet JS library for map functionality -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
   </body>
