@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Send image to backend API
     const response = await fetch(
-      "https://where-am-ai-backend.onrender.com/upload",
+      "https://3d5e-2601-2c3-867f-1170-c126-655f-d0e2-8f7e.ngrok-free.app/upload",
       {
         method: "POST",
         body: formData,
